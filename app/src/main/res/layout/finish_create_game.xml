@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView android:id="@+id/ScrollView01"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_height="wrap_content" android:layout_width="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:id="@+id/select_players_label"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:text="@string/selectPlayers"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="5dp"
+                    android:textSize="18sp"/>
+                <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/select_players"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@id/select_players_label"
+                    android:layout_marginTop="17dp"
+                    android:layout_marginLeft="10dp"
+                    android:spinnerMode="dropdown" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_height="wrap_content" android:layout_width="fill_parent">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:id="@+id/select_level_label"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:text="@string/selectLevel"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="5dp"
+                    android:textSize="18sp"/>
+                <RatingBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/select_level"
+                    android:numStars="5"
+                    android:layout_alignTop="@+id/select_level_label"
+                    android:layout_alignBottom="@+id/select_level_label"
+                    android:layout_toRightOf="@+id/select_level_label"
+                    android:rating="1.0"
+                    android:stepSize="1.0"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
+            </RelativeLayout>
+            <LinearLayout
+                android:orientation="vertical" android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:id="@+id/select_description_label"
+                    android:layout_height="wrap_content"
+                    android:text="@string/selectDescription"
+                    android:layout_marginTop="20dp"
+                    android:textSize="18sp"/>
+                <EditText
+                    android:inputType="textMultiLine"
+                    android:lines="8"
+                    android:minLines="6"
+                    android:layout_marginTop="5dp"
+                    android:gravity="top|left"
+                    android:maxLines="10"
+                    android:layout_height="wrap_content"
+                    android:layout_width="fill_parent"
+                    android:scrollbars="vertical"
+                    android:editable="true"
+                    android:linksClickable="false"
+                    android:hint="@string/optional"
+                    android:id="@+id/select_description"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:paddingLeft="5dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:text="@string/selectSecurity" />
+                <!--RadioGroup
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:id="@+id/select_security"
+                    android:checkedButton="@id/select_public"
+                    >
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/select_public"
+                        android:text="@string/publicGame"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/select_friends"
+                        android:text="@string/friendGame"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/select_privacy"
+                        android:text="@string/privateGame"/>
+
+                </RadioGroup-->
+            </LinearLayout>
+            <Switch
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/selectYourself"
+                android:id="@+id/select_yourself"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="15dp"
+                android:textSize="18sp"
+                android:switchMinWidth="50dp"
+                android:textColor="@color/gray"
+                />
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="100dp"
+                    android:layout_centerInParent="true"
+                    android:text="Create Game"
+                    android:background="@drawable/next_button"
+                    android:textColor="@color/primary_text"
+                    android:textSize="18sp"
+                    android:id="@+id/next_create_game_button" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

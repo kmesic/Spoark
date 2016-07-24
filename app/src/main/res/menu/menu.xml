@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+    <group
+        android:checkableBehavior="single"
+        android:id="@+id/general">
+        <item
+            android:id="@+id/item_home"
+            android:title="Home" />
+        <item
+            android:id="@+id/item_create_game"
+            android:title="Create Game" />
+        <item
+            android:id="@+id/item_search"
+            android:title="Search" />
+        <item
+            android:id="@+id/item_mygames"
+            android:title="My Games" />
+        <item
+            android:id="@+id/item_myparks"
+            android:title="My Parks" />
+        <item
+            android:id="@+id/item_profile"
+            android:title="Profile" />
+        <item
+            android:id="@+id/item_settings"
+            android:title="Settings" />
+    </group>
+</menu>
