@@ -50,7 +50,7 @@ public class CreateGameFragment extends Fragment implements OnMapReadyCallback, 
 
     public void updateCurrentLocation(Location currentLocation) {
         this.currentLocation = new Location(currentLocation);
-        Log.d("CreateGame", "Location" + currentLocation.getLatitude());
+        Log.d(TAG, "Location: " + currentLocation.getLatitude());
     }
 
     @Nullable
@@ -101,7 +101,32 @@ public class CreateGameFragment extends Fragment implements OnMapReadyCallback, 
                 == PackageManager.PERMISSION_GRANTED) {
             map.setMyLocationEnabled(true);
             map.getUiSettings().setMyLocationButtonEnabled(true);
-            this.getLocationUpdates();
+            moveMaptoLastKnownLocation();
+            //this.getLocationUpdates();
+        }
+        else {
+            // TODO: Need to request for permission of location
+        }
+    }
+
+    private void moveMaptoLastKnownLocation() {
+        LocationManager locationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
+
+        Criteria criteria = new Criteria();
+
+        String provider = locationManager.getBestProvider(criteria, true);
+
+        try {
+            Location location = null;
+            location = locationManager.getLastKnownLocation(provider);
+
+            if(location!=null) {
+                onLocationChanged(location);
+            }
+        }
+        catch(SecurityException e) {
+            Log.d(TAG, "Permission denied");
+            return;
         }
     }
 
@@ -113,16 +138,15 @@ public class CreateGameFragment extends Fragment implements OnMapReadyCallback, 
         String provider = locationManager.getBestProvider(criteria, true);
 
         try {
-        Location location = null;
-        location = locationManager.getLastKnownLocation(provider);
+            Location location = null;
+            location = locationManager.getLastKnownLocation(provider);
 
+            if(location!=null) {
+                onLocationChanged(location);
+            }
 
-        if(location!=null){
-            onLocationChanged(location);
-        }
-
-        // get location updates every 20 sec...time is in milliseconds
-        locationManager.requestLocationUpdates(provider, 20000, 0, this);
+            // get location updates every 20 sec...time is in milliseconds
+            locationManager.requestLocationUpdates(provider, 20000, 0, this);
         }
         catch(SecurityException e) {
             Log.d(TAG, "Permission denied");
@@ -143,7 +167,7 @@ public class CreateGameFragment extends Fragment implements OnMapReadyCallback, 
             googleMap.animateCamera(CameraUpdateFactory.zoomTo(10));
         }
 
-        Log.i(TAG, "Location changed, " + location.getAccuracy() + " , " + location.getLatitude() + "," + location.getLongitude());
+        Log.i(TAG, "Location changed, " + location.getAccuracy() + ", " + location.getLatitude() + ", " + location.getLongitude());
     }
 
     @Override
