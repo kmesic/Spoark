@@ -1,0 +1,16 @@
+{
+  "apps": [
+    {
+      "serverURL": "http://localhost:1337/parse",
+      "appId": "spoark",
+      "masterKey": "spoark",
+      "appName": "Spoark"
+    }
+  ],
+  "users": [
+        {
+            "user": "kenmesi",
+            "pass": "spoark"
+        }
+  ]
+}
