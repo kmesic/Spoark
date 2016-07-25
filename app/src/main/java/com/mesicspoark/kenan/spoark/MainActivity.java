@@ -147,7 +147,8 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onPause() {
         super.onPause();
-        if(mGoogleApiClient.isConnected()) {
+
+        if(mGoogleApiClient != null && mGoogleApiClient.isConnected()) {
             stopLocationUpdates();
         }
     }
@@ -156,7 +157,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onResume() {
         super.onResume();
-        if (mGoogleApiClient.isConnected()) {
+        if (mGoogleApiClient != null && mGoogleApiClient.isConnected()) {
             startLocationUpdates();
         }
     }
@@ -383,7 +384,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     /*
-    Used to save the instance of the selected item and then when orientation changes it can still be applied
+     * Used to save the instance of the selected item and then when orientation changes it can still be applied
      */
 
     public void onSaveInstanceState(Bundle outState) {

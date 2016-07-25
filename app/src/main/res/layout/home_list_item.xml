@@ -6,14 +6,13 @@
     android:paddingTop="5dp"
     android:background="@layout/border_shadow"
     android:descendantFocusability="blocksDescendants">
-
     <ImageView
         android:id="@+id/imageSport"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="5dp"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentTop="false"
         android:adjustViewBounds="false"
         android:src="@drawable/ic_soccer"/>
 
@@ -95,7 +94,8 @@
         android:layout_below="@+id/neededPlayers"
         android:layout_alignLeft="@+id/neededPlayers"
         android:layout_alignStart="@+id/neededPlayers"
-        android:layout_marginTop="2dp" />
+        android:layout_marginTop="2dp"
+        android:clickable="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -107,7 +107,8 @@
         android:layout_toRightOf="@+id/numNeededPlayers"
         android:layout_toEndOf="@+id/numNeededPlayers"
         android:singleLine="true"
-        android:textColor="@color/secondary_text" />
+        android:textColor="@color/secondary_text"
+        android:clickable="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -115,7 +116,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/level"
         android:id="@+id/level"
-        android:layout_below="@+id/sport"
+        android:layout_alignTop="@+id/where"
         android:layout_alignLeft="@+id/imageSport"
         android:layout_marginTop="28dp"
         android:textColor="@color/primary_text" />
@@ -171,9 +172,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/level1"
-        android:layout_below="@+id/sport"
         android:layout_marginTop="20dp"
         android:layout_toRightOf="@+id/level"
+        android:layout_alignTop="@+id/where"
         android:layout_alignParentStart="false"
         android:layout_alignParentLeft="false"
         android:layout_toEndOf="@id/level"
